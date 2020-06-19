@@ -93,7 +93,7 @@ if (interactive() && file.exists("results.rds")) {
 
 # Population per zip code (2016)
 # Source: https://data.world/lukewhyte/us-population-by-zip-code-2010-2016
-POPULATION <- readRDS("population.rds")
+POPULATION <- readRDS("data/population.rds")
 
 
 
@@ -133,7 +133,7 @@ include_zips <- zipdetails[['Zip']][include_zips]
 
 
 # SpatialPolygonsDataFrame for above zip codes
-if (!all(file.exists(paste0("gis-", c("zip", "city", "county"), ".rds")))) {
+if (!all(file.exists(paste0("data/gis-", c("zip", "city", "county"), ".rds")))) {
   
   # Download a Zip Code Tabulation Area (ZCTA) shapefile
   zip_prefixes <- include_zips %>% substr(1,3) %>% unique()
@@ -144,16 +144,16 @@ if (!all(file.exists(paste0("gis-", c("zip", "city", "county"), ".rds")))) {
   gisCity   <- unionSpatialPolygons(gis, zip2city[as.character(gis$ZCTA5CE10)])
   gisCounty <- unionSpatialPolygons(gis, zip2county[as.character(gis$ZCTA5CE10)])
   
-  saveRDS(gisZip,    "gis-zip.rds")
-  saveRDS(gisCity,   "gis-city.rds")
-  saveRDS(gisCounty, "gis-county.rds")
+  saveRDS(gisZip,    "data/gis-zip.rds")
+  saveRDS(gisCity,   "data/gis-city.rds")
+  saveRDS(gisCounty, "data/gis-county.rds")
   
 }
 
 GIS <- list(
-  'Zip Code' = readRDS("gis-zip.rds"),
-  'City'     = readRDS("gis-city.rds"),
-  'County'   = readRDS("gis-county.rds")
+  'Zip Code' = readRDS("data/gis-zip.rds"),
+  'City'     = readRDS("data/gis-city.rds"),
+  'County'   = readRDS("data/gis-county.rds")
 )
 
 

@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+.gitignore
+Covid.Rproj
 rsconnect
 redcap2aws.r
 aws_credentials.r
