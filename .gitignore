@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+rsconnect
+redcap2aws.r
+aws_credentials.r
