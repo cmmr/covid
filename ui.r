@@ -34,14 +34,7 @@ navbarPage(
             
             column(2, NULL),
                 
-            column(4, dateRangeInput(
-                    inputId = "dateRange", 
-                    label = "Date Range", 
-                    format = "MM d",
-                    start = min(DATA[['Date']]), 
-                    min   = min(DATA[['Date']]), 
-                    end   = max(DATA[['Date']]), 
-                    max   = max(DATA[['Date']]) ))
+            column(4, uiOutput('dateRange.UI'))
         )
     )
 )
